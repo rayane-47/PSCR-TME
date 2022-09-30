@@ -3,16 +3,19 @@
 #include <iostream>
 #include <cstring>
 
-int main () {
+int main()
+{
 
 	std::string abc = "abc";
-	char * str = new char [3];
+	char *str = new char[3];
 	str[0] = 'a';
 	str[1] = 'b';
 	str[2] = 'c';
-	size_t i = 0;
+	// Erreur de typage: la variable i doit etre de type int
+	int i = 0;
 
-	if (! strcmp (str, abc.c_str())) {
+	if (!strcmp(str, abc.c_str()))
+	{
 		std::cout << "Equal !";
 	}
 
@@ -24,15 +27,20 @@ int main () {
 	std::cout << "Taille : " << list.size() << std::endl;
 
 	// Affiche à l'envers
-	for (i= list.size() - 1 ; i >= 0 ; i--) {
+	for (i = list.size() - 1; i >= 0; i--)
+	{
 		std::cout << "elt " << i << ": " << list[i] << std::endl;
 	}
 
 	// liberer les char de la chaine
+	// Faute de libération memoire: On libere le tableau en entier avec une seul instruction
+	// Les caracteres sont des types primitifs contenus dans le tableau dont seront supprimés avec le tableau
+	/*
 	for (char *cp = str ; *cp ; cp++) {
 		delete cp;
-	}
+	}*/
 	// et la chaine elle meme
-	delete str;
-
+	delete[] str;
+	// La fonction main renvoie un entier, il manque donc l'instruction return 0;
+	return 0;
 }

@@ -1,0 +1,41 @@
+// Name: TME01
+// Athor: Rayane MAKHLOUF
+
+Q01:
+Lancement de Eclipse
+
+Q02:
+Construction d'un nouveau projet TME0 "Hello world"
+
+Q03:
+Compilation du projet avec succés
+
+Q04:
+Programme réalisé, projet built et exécuté avec succés.
+
+Q05:
+La compilation s'est bien passé, aucune erreur et aucun warning.
+A l'execution, le programme affiche "probleme" à l'infini.
+
+Q06:
+Le tableau contient des entiers .
+I vaut 9 puis décrémenté jusqu'à atteindre 0 puis au prochain tour de boucle retorune à une valeur entière positive très grande ce qui signifie que le test reste vrai tout le temps donc finalement le programme boucle à l'infini.
+- Pour que la boucle aie effectivement lieu 10 fois on initialise i à 10 et on change le type de i de entiers positif à entier . 
+
+
+
+*******************************************************************
+Debug a la main:
+g++ -g -0 hello.cpp -o hello
+gdb hello
+r (run)
+br main.cpp (breakpoint)
+n (next)
+s (step)
+p (print)
+bt (backtrace)
+f 3 (frame)
+c (continue)
+q (quit)
+l (list)
+ddd (debugger graphique)
