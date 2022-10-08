@@ -1,0 +1,20 @@
+// Rayane MAKHLOUF
+//TME 2
+
+Q01:
+Il y a 566193 mots.
+
+
+Q03:
+
+Résultats obtenu en affichage:
+Finished Parsing War and Peace
+Parsing took 105967ms.
+Found a total of 566193 words.
+the total of different words is: 20333
+Le nombre d'occurences du mot warest 298
+Le nombre d'occurences du mot peaceest 114
+
+Q04:
+Cet algorithme est de compléxité quadratique.
+On peut utiliser une table de hashage.
