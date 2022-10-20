@@ -1,0 +1,32 @@
+// Rayane MAKHLOUF
+TME4
+
+Q2:
+Le comportement est incorrect car les locks
+de la classe Compte ne suffisent pas à  cause du datarace
+entre les threads sur le vectors de comptes.
+
+un cas d'éxecution faux:
+
+Solde attendu : 30000
+Solde comptabilisé : Bilan comptable faux : attendu 30000 obtenu : 15000
+0
+Concretement, lorsque l'on parcoure le vector de comptes au travers de la méthode comptabiliser de la classe Banque,
+on a aucune garantie qu'un thread est entrain d'effectuer un transfer entre un compte dont le solde a déja été lu et un autre compte 
+dont le solde n'a pas encore été lue, la valeur débitée causera donc un bilan comptable faux.
+
+
+Q5:
+Le programme se bloque immédiatement, même avec un seul thread qui fait des
+transferts. Cela est dû au fait que l'on effectue 2 fois un lock sur les deux mutex des deux comptes créditeur et débiteur au niveau
+ de la méthode transfert ainsi que des méthodes débiter et créditer 
+
+Q6:
+Après correction du problème précédent à l'aide de recursive_mutex, on introduit
+plusieurs thread faisant des transferts, mais de nouveau on observe parfois un interblocage, le
+programme entier se fige, on peut éxpliquer cela par le fait que 
+
+Q7:
+Un thread comptable qui tourne en concurrence avec les threads de transfert ne sera pas satisfait avec les synchronisations actuelles
+car quand le thread comptable parcours les comptes, on a aucune garantie qu'un thread de transfert
+n'est pas entrain d'effectuer un transfert entre un compte dont le solde a déja été lu et un autre compte dont le solde n'a pas encore été lue, la valeur débitée causera donc un bilan comptable faux.
